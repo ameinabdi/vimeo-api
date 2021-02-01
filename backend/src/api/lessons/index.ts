@@ -1,0 +1,30 @@
+export default (app) => {
+  app.post(
+    `/tenant/:tenantId/lessons`,
+    require('./lessonsCreate').default,
+  );
+  app.put(
+    `/tenant/:tenantId/lessons/:id`,
+    require('./lessonsUpdate').default,
+  );
+  app.post(
+    `/tenant/:tenantId/lessons/import`,
+    require('./lessonsImport').default,
+  );
+  app.delete(
+    `/tenant/:tenantId/lessons`,
+    require('./lessonsDestroy').default,
+  );
+  app.get(
+    `/tenant/:tenantId/lessons/autocomplete`,
+    require('./lessonsAutocomplete').default,
+  );
+  app.get(
+    `/tenant/:tenantId/lessons`,
+    require('./lessonsList').default,
+  );
+  app.get(
+    `/tenant/:tenantId/lessons/:id`,
+    require('./lessonsFind').default,
+  );
+};
